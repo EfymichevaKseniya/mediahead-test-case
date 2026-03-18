@@ -24,7 +24,7 @@
     }
 
     .btn-sales {
-      @apply bg-primary hover:bg-primary-dark text-xl text-white font-semibold px-8 py-3 rounded-2xl transition shadow-lg font-outfit w-full md:w-auto xl:w-auto cursor-pointer;
+      @apply bg-primary cursor-pointer hover:bg-primary-dark text-xl text-white font-semibold px-8 py-3 rounded-2xl transition shadow-lg font-outfit w-full md:w-auto xl:w-auto;
     }
 
     .tab-button {
@@ -33,7 +33,7 @@
     }
 
     .colored-text {
-      @apply absolute inset-0 h-[34px] origin-bottom -rotate-2 translate-y-2 before:content-[''] before:absolute before:inset-[0.06em] before:rounded-full before:bg-primary-light;
+      @apply absolute inset-0 h-[34px] origin-bottom -rotate-2 translate-y-2 before:content-[''] before:absolute before:inset-[0.05em] before:rounded-full before:bg-primary-light;
       z-index: -1;
     }
 
@@ -99,7 +99,7 @@
     <div id="menuOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300 z-full md:hidden"></div>
 
     <!-- Мобильное меню -->
-    <div id="mobileMenu" class="fixed top-0 right-[-100%] w-full max-w-sm px-8 h-screen bg-custom-black transition-[right] duration-[400ms] ease-in-out z-full overflow-y-auto flex flex-col justify-around md:hidden">
+    <div id="mobileMenu" class="fixed top-0 -right-full w-full max-w-md px-8 h-screen bg-custom-black transition-[right] duration-[400ms] ease-in-out z-full overflow-y-auto flex flex-col justify-around md:hidden">
       <button class="btn-sales mt-16 mb-12">Contact sales</button>
 
       <ul class="list-none flex flex-col" id="menuLinks">

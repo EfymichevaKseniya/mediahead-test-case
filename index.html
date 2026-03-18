@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
@@ -20,33 +20,33 @@
       --color-custom-black: #181818;
       --color-custom-orange: #FFAA4C;
       --max-width-container: 1320px;
-      --adv-cols: 45% 55%;
+      --adv-cols: 40% 60%;
     }
 
     .btn-sales {
-      @apply bg-primary hover:bg-primary-dark text-xl text-white font-semibold px-8 py-3 rounded-2xl transition shadow-lg font-outfit w-full xl:w-auto;
+      @apply bg-primary hover:bg-primary-dark text-xl text-white font-semibold px-8 py-3 rounded-2xl transition shadow-lg font-outfit w-full md:w-auto xl:w-auto;
     }
 
     .tab-button {
-      @apply px-6 py-2.5 font-medium transition text-custom-black data-[active=true]:bg-custom-black data-[active=true]:text-white data-[active=true]:shadow-md;
+      @apply px-6 py-2 font-medium transition text-custom-black data-[active=true]:bg-custom-black data-[active=true]:text-white data-[active=true]:shadow-md;
       border-radius: 20px 20px 0 0;
     }
 
     .colored-text {
-      @apply absolute inset-0 h-[34px] origin-bottom -rotate-2 translate-y-2 before:content-[''] before:absolute before:inset-[0.05em] before:rounded-full before:bg-primary-light;
+      @apply absolute inset-0 h-[34px] origin-bottom -rotate-2 translate-y-2 before:content-[''] before:absolute before:inset-[0.06em] before:rounded-full before:bg-primary-light;
       z-index: -1;
     }
 
     .heading-1 {
-      @apply font-extrabold tracking-tight leading-tight text-4xl sm:text-5xl lg:text-7xl xl:text-8xl;
+      @apply font-bold tracking-tight leading-tight text-4xl sm:text-5xl lg:text-7xl xl:text-8xl;
     }
 
     .heading-2 {
-      @apply text-lg sm:text-xl lg:text-2xl xl:text-3xl;
+      @apply text-3xl sm:text-4xl lg:text-5xl font-bold;
     }
 
     .heading-3 {
-      @apply font-semibold text-3xl lg:text-4xl;
+      @apply font-semibold text-2xl lg:text-4xl;
     }
 
     .mobile-link {
@@ -55,6 +55,10 @@
 
     .hamburger-line {
       @apply block w-6 h-0.75 bg-white rounded-sm transition-all duration-300
+    }
+
+    .card {
+      @apply space-y-4 max-w-xs;
     }
 
     @keyframes slideUp {
@@ -92,12 +96,10 @@
     </div>
 
     <!-- Оверлей -->
-    <div id="menuOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300 z-[998] md:hidden"></div>
+    <div id="menuOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300 z-full md:hidden"></div>
 
     <!-- Мобильное меню -->
-    <div id="mobileMenu" class="fixed top-0 right-[-100%] w-full max-w-[400px] px-8 h-screen bg-custom-black transition-[right] duration-[400ms] ease-[cubic-bezier(0.4,0,0.2,1)] z-[999] overflow-y-auto flex flex-col justify-around md:hidden">
-      <button id="menuClose" class="absolute top-5 right-5 bg-transparent border-none text-white text-4xl cursor-pointer w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:bg-white/10" aria-label="Close menu">×</button>
-      
+    <div id="mobileMenu" class="fixed top-0 right-[-100%] w-full max-w-sm px-8 h-screen bg-custom-black transition-[right] duration-[400ms] ease-in-out z-full overflow-y-auto flex flex-col justify-around md:hidden">
       <button class="btn-sales mt-16 mb-12">Contact sales</button>
 
       <ul class="list-none flex flex-col" id="menuLinks">
@@ -110,16 +112,17 @@
     </div>
   </header>
 
-  <main>
+  <main class="flex flex-col flex-1">
     <!-- Hero -->
-    <section aria-labelledby="hero-heading" class="relative min-h-screen bg-custom-black mt-20">     
+    <section aria-labelledby="hero-heading" class="relative min-h-auto lg:min-h-dvh bg-custom-black mt-20">     
       <div class="max-w-container  mx-auto w-full flex flex-wrap">
         <div class="px-4 xl:px-14 w-full xl:w-3/4">
-          <h1 id="hero-heading" class="heading-1 tracking-tight">Everyone is an Influencer</h1>
+          <h1 id="hero-heading" class="heading-1 tracking-tight whitespace-pre-line">Everyone 
+            is an Influencer</h1>
           <p class="text-lg xl:text-xl max-w-xl mt-5 mb-10">Budss is a payments as a service and WOM engine dedicated to acquisition and retention of customers to your business.</p>
           <button type="button" class="btn-sales text-xl px-8 py-4">Contact sales</button>
         </div>
-        <div class="aspect-square rounded-3xl overflow-hidden flex mt-10 mx-auto lg:mt-0 lg:aspect-[3/2]">
+        <div class="aspect-square rounded-3xl overflow-hidden flex mt-10 mx-auto lg:mt-0 xl:aspect-[3/2]">
           <img src="assets/hero-bg.png" alt="Happy customer using contactless payment powered by Budss" class="static lg:absolute right-0 bottom-0 h-full w-auto object-cover object-right" loading="eager"/>
         </div>
       </div>
@@ -131,12 +134,9 @@
         <h2 class="heading-1">About Budss</h2>
           <div class="grid lg:grid-cols-(--adv-cols) xl:grid-cols-(--adv-cols) content-start place-items-start justify-between mt-10 xl:mt-20 w-full">
             <div>
-              <p class="heading-3 font-semibold text-white line-clamp-3">
-                Payment as a service, powered seamlessly by our
-                <span class="relative inline-block z-10">
-                  network of shoppers
-                  <span class="colored-text"></span>
-                </span>
+              <p class="heading-3 font-semibold text-white whitespace-pre-line">Payment as a service,
+                powered seamlessly by 
+                our <span class="relative inline-block z-10">network of shoppers<span class="colored-text"></span></span>
               </p>
 
               <div class="rounded-3xl overflow-hidden hidden xl:block w-full h-full min-h-screen">
@@ -145,25 +145,25 @@
             </div>
 
             <!-- Преимущества -->
-            <div class="grid lg:grid-cols-2 xl:grid-cols-2 gap-12 mt-20 xl:mt-0">
-              <article class="space-y-4">
+            <div class="grid lg:grid-cols-2 xl:grid-cols-2 items-center gap-14 mt-20 xl:mt-0">
+              <article class="card">
                 <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.076 8.26481C36.6868 3.91172 42.8437 3.91172 44.4545 8.26481L50.8981 25.6783C51.4045 27.0469 52.4836 28.126 53.8522 28.6324L71.2657 35.076C75.6188 36.6868 75.6188 42.8437 71.2657 44.4545L53.8522 50.8981C52.4836 51.4045 51.4045 52.4836 50.8981 53.8522L44.4545 71.2657C42.8437 75.6188 36.6868 75.6188 35.076 71.2657L28.6324 53.8522C28.126 52.4836 27.0469 51.4045 25.6783 50.8981L8.26481 44.4545C3.91172 42.8437 3.91172 36.6868 8.26481 35.076L25.6783 28.6324C27.0469 28.126 28.126 27.0469 28.6324 25.6783L35.076 8.26481Z" stroke="#FFAA4C" stroke-width="10"/></svg>
-                <h3 class="heading-3">Contactless</h3>
+                <h3 class="heading-2">Contactless</h3>
                 <p class="text-white text-lg xl:text-xl">Budss uses near field communication (NFC) for making contactless payments.</p>
               </article>
-              <article class="space-y-4">
+              <article class="card">
                 <svg width="73" height="94" viewBox="0 0 73 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.5379 88.4527C7.13576 78.1223 15.3758 53.69 38.0364 46.5041C66.3622 37.5218 64.636 73.0154 37.9347 64.1621C-5.4168 49.7882 24.1064 15.7717 46.9658 14.6918" stroke="#A64CED" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.8147 5.00129L51.5543 10.7241L45.8314 23.4637" stroke="#A64CED" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <h3 class="heading-3">Increased Buying Power</h3>
+                <h3 class="heading-2">Increased Buying Power</h3>
                 <p class="text-white text-lg xl:text-xl">Returning customers spend up to 3X more.</p>
               </article>
-              <article class="space-y-4">
+              <article class="card">
                 <svg width="100" height="49" viewBox="0 0 100 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.00122 43.3569L22.8472 5.00122L40.6933 43.3569L58.5393 5.00122L76.3853 43.3569L94.2313 5.00122" stroke="#2FDBBC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <h3 class="heading-3">Analytics & Insights</h3>
+                <h3 class="heading-2">Analytics & Insights</h3>
                 <p class="text-white text-lg xl:text-xl">Gain a holistic view into your customers' buying behavior & purchasing patterns.</p>
               </article>
-              <article class="space-y-4">
+              <article class="card">
                 <svg width="100" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="55.8757" height="29.3462" rx="14.6731" stroke="#C1DB2F" stroke-width="10"/><rect x="36.3831" y="22.1157" width="55.8757" height="29.3462" rx="14.6731" transform="rotate(-22.1921 36.3831 22.1157)" stroke="#C1DB2F" stroke-width="10"/></svg>
-                <h3 class="heading-3">Fraud Protection</h3>
+                <h3 class="heading-2">Fraud Protection</h3>
                 <p class="text-white text-lg xl:text-xl">Budss handles all payments with fraud prevention algorithm & user-set PIN code.</p>
               </article>
             </div>
@@ -178,41 +178,43 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.getElementById('menuToggle');
-      const menuClose = document.getElementById('menuClose');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const menuOverlay = document.getElementById('menuOverlay');
-      const menuLinks = document.getElementById('menuLinks');
-      const hamburgerLines = document.querySelectorAll('.hamburger-line');
-      const body = document.body;
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('menuOverlay');
+        const links = document.getElementById('menuLinks');
+        const lines = document.querySelectorAll('.hamburger-line');
 
-      function toggleMenu() {
-        const isOpen = mobileMenu.style.right === '0px';
-        if (!isOpen) {
-          mobileMenu.style.right = '0';
-          menuOverlay.classList.remove('opacity-0', 'invisible');
-          hamburgerLines.forEach((line, i) => {
-            if (i === 0) line.style.transform = 'rotate(45deg) translate(5px, 5px)';
-            if (i === 1) line.style.opacity = '0';
-            if (i === 2) line.style.transform = 'rotate(-45deg) translate(7px, -6px)';
-          });
-          body.style.overflow = 'hidden';
-          setTimeout(() => { menuLinks.querySelectorAll('a').forEach((link, i) => { link.style.animation = `slideUp 0.4s ease ${i * 0.1}s forwards`; link.style.opacity = '0'; }, 100); }, 150);
-        } else {
-          mobileMenu.style.right = '-100%';
-          menuOverlay.classList.add('opacity-0', 'invisible');
-          hamburgerLines.forEach(line => { line.style.transform = ''; line.style.opacity = ''; });
-          body.style.overflow = '';
-          menuLinks.querySelectorAll('a').forEach(link => { link.style.animation = ''; link.style.opacity = ''; });
+        function open() {
+          menu.style.right = '0px';
+          overlay.classList.remove('opacity-0', 'invisible');
+          overlay.classList.add('opacity-100');
+          document.body.style.overflow = 'hidden';
+
+          lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          lines[1].style.opacity = '0';
+          lines[2].style.transform = 'rotate(-45deg) translate(8px, -8px)';
         }
-      }
 
-      menuToggle?.addEventListener('click', toggleMenu);
-      menuClose?.addEventListener('click', toggleMenu);
-      menuOverlay?.addEventListener('click', toggleMenu);
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.style.right === '0px') toggleMenu(); });
-      mobileMenu?.addEventListener('click', e => e.stopPropagation());
-    });
+        function close() {
+          menu.style.right = '-100%';
+          overlay.classList.add('opacity-0', 'invisible');
+          document.body.style.overflow = '';
+
+          lines.forEach(line => {
+            line.style.transform = '';
+            line.style.opacity = '';
+          });
+        }
+
+        toggle?.addEventListener('click', () => menu.style.right === '0px' ? close() : open());
+        overlay?.addEventListener('click', close);
+
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape' && menu.style.right === '0px') close();
+        });
+
+        menu?.addEventListener('click', e => e.stopPropagation());
+      });
   </script>
   </body>
 </html>

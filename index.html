@@ -21,6 +21,7 @@
       --color-custom-orange: #FFAA4C;
       --max-width-container: 1320px;
       --adv-cols: 40% 60%;
+      --custom-dense: 106%;
     }
 
     .btn-sales {
@@ -33,20 +34,19 @@
     }
 
     .colored-text {
-      @apply absolute inset-0 h-[34px] origin-bottom -rotate-2 translate-y-2 before:content-[''] before:absolute before:inset-[0.05em] before:rounded-full before:bg-primary-light;
-      z-index: -1;
+      @apply absolute inset-x-[-0.3em] inset-y-[0.05em] -z-10 rounded-full bg-primary translate-y-1 translate-x-1 -rotate-2;
     }
 
     .heading-1 {
-      @apply font-bold tracking-tight leading-tight text-4xl sm:text-5xl lg:text-7xl xl:text-8xl;
+      @apply font-bold text-[40px] sm:text-5xl lg:text-7xl xl:text-8xl/[var(--custom-dense)] leading-none;
     }
 
     .heading-2 {
-      @apply text-3xl sm:text-4xl lg:text-5xl font-bold;
+      @apply text-[30px] sm:text-4xl lg:text-5xl font-bold leading-none;
     }
 
     .heading-3 {
-      @apply font-semibold text-2xl lg:text-4xl;
+      @apply font-semibold text-2xl lg:text-4xl leading-none;
     }
 
     .mobile-link {
@@ -59,6 +59,10 @@
 
     .card {
       @apply space-y-4 max-w-xs;
+    }
+
+    .card-icon {
+      @apply size-[100px] flex items-center justify-center flex-shrink-0;
     }
 
     @keyframes slideUp {
@@ -112,59 +116,91 @@
     </div>
   </header>
 
-  <main class="flex flex-col flex-1">
+  <main class="flex flex-col flex-1 px-4 xl:px-0">
     <!-- Hero -->
-    <section aria-labelledby="hero-heading" class="relative min-h-auto lg:min-h-dvh bg-custom-black mt-20">     
-      <div class="max-w-container  mx-auto w-full flex flex-wrap">
-        <div class="px-4 xl:px-14 w-full xl:w-3/4">
-          <h1 id="hero-heading" class="heading-1 tracking-tight whitespace-pre-line">Everyone 
+    <section aria-labelledby="hero-heading" class="relative bg-custom-black py-10 xl:py-18">
+      <div class="max-w-container mx-auto relative flex flex-col lg:flex-row lg:items-center gap-10 xl:gap-16">
+        <div class="pl-0 xl:pl-12 lg:w-1/2 xl:w-7/12 z-10 relative">
+          <h1 id="hero-heading" class="heading-1 whitespace-pre-line">Everyone 
             is an Influencer</h1>
-          <p class="text-lg xl:text-xl max-w-xl mt-5 mb-10">Budss is a payments as a service and WOM engine dedicated to acquisition and retention of customers to your business.</p>
-          <button type="button" class="btn-sales text-xl px-8 py-4">Contact sales</button>
+          <p class="text-base xl:text-xl max-w-xl leading-tight my-5">Budss is a payments as a service and WOM engine dedicated to acquisition and retention of customers to your business.</p>
+          <button type="button" class="btn-sales text-xl px-8 py-4 mt-4 mb-30 xl:mb-0">Contact sales</button>
         </div>
-        <div class="aspect-square rounded-3xl overflow-hidden flex mt-10 mx-auto lg:mt-0 xl:aspect-[3/2]">
-          <img src="assets/hero-bg.png" alt="Happy customer using contactless payment powered by Budss" class="static lg:absolute right-0 bottom-0 h-full w-auto object-cover object-right" loading="eager"/>
+        <div class="overflow-hidden lg:w-1/2 xl:w-5/12 -mt-10 lg:-mt-0 -mr-4 lg:-mr-16 xl:-mr-24" dir="rtl">
+          <img src="assets/hero-bg.png" alt="Happy customer using contactless payment powered by Budss" class="w-full h-auto shadow-2xl object-contain lg:object-cover" loading="eager"/>
         </div>
       </div>
     </section>
 
     <!-- About -->
     <section aria-labelledby="advantages" class="relative bg-custom-black">
-      <div class="max-w-container mx-auto py-5 xl:py-25 px-4">
+      <div class="max-w-container mx-auto py-5 xl:py-25">
         <h2 class="heading-1">About Budss</h2>
-          <div class="grid lg:grid-cols-(--adv-cols) xl:grid-cols-(--adv-cols) content-start place-items-start justify-between mt-10 xl:mt-20 w-full">
-            <div>
+          <div class="flex flex-wrap xl:flex-nowrap gap-0 xl:gap-30 items-start justify-between mt-8 xl:mt-20 w-full">
+            <div class="w-full lg:w-1/3">
               <p class="heading-3 font-semibold text-white whitespace-pre-line">Payment as a service,
                 powered seamlessly by 
                 our <span class="relative inline-block z-10">network of shoppers<span class="colored-text"></span></span>
               </p>
 
-              <div class="rounded-3xl overflow-hidden hidden xl:block w-full h-full min-h-screen">
-                <img src="assets/adv-hero.png" alt="Happy customer using contactless payment powered by Budss" class="absolute left-0 bottom-0 h-1/2 w-auto object-cover object-left z-10" loading="eager"/>
+              <div class="rounded-3xl overflow-hidden hidden xl:block w-full h-full">
+                <img src="assets/adv-hero.png" alt="Happy customer using contactless payment powered by Budss" class="absolute left-0 bottom-0 w-auto object-cover object-left z-10" loading="eager"/>
               </div>
             </div>
 
             <!-- Преимущества -->
-            <div class="grid lg:grid-cols-2 xl:grid-cols-2 items-center gap-14 mt-20 xl:mt-0">
+            <div class="grid lg:grid-cols-2 xl:grid-cols-[300px_300px] items-center gap-16 mt-10 xl:mt-0 w-full xl:w-2/3">
               <article class="card">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.076 8.26481C36.6868 3.91172 42.8437 3.91172 44.4545 8.26481L50.8981 25.6783C51.4045 27.0469 52.4836 28.126 53.8522 28.6324L71.2657 35.076C75.6188 36.6868 75.6188 42.8437 71.2657 44.4545L53.8522 50.8981C52.4836 51.4045 51.4045 52.4836 50.8981 53.8522L44.4545 71.2657C42.8437 75.6188 36.6868 75.6188 35.076 71.2657L28.6324 53.8522C28.126 52.4836 27.0469 51.4045 25.6783 50.8981L8.26481 44.4545C3.91172 42.8437 3.91172 36.6868 8.26481 35.076L25.6783 28.6324C27.0469 28.126 28.126 27.0469 28.6324 25.6783L35.076 8.26481Z" stroke="#FFAA4C" stroke-width="10"/></svg>
+                <div class="card-icon">
+                  <svg 
+                    class="size-full"
+                    viewBox="0 0 80 80"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <use href="#img-adv-1"></use>
+                  </svg>
+                </div>
                 <h3 class="heading-2">Contactless</h3>
-                <p class="text-white text-lg xl:text-xl">Budss uses near field communication (NFC) for making contactless payments.</p>
+                <p class="text-white text-base xl:text-xl">Budss uses near field communication (NFC) for making contactless payments.</p>
               </article>
               <article class="card">
-                <svg width="73" height="94" viewBox="0 0 73 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.5379 88.4527C7.13576 78.1223 15.3758 53.69 38.0364 46.5041C66.3622 37.5218 64.636 73.0154 37.9347 64.1621C-5.4168 49.7882 24.1064 15.7717 46.9658 14.6918" stroke="#A64CED" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M38.8147 5.00129L51.5543 10.7241L45.8314 23.4637" stroke="#A64CED" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="card-icon">
+                  <svg
+                    class="size-full"
+                    viewBox="0 0 73 94"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <use href="#img-adv-2"></use>
+                  </svg>
+                </div>
                 <h3 class="heading-2">Increased Buying Power</h3>
-                <p class="text-white text-lg xl:text-xl">Returning customers spend up to 3X more.</p>
+                <p class="text-white text-base xl:text-xl">Returning customers spend up to 3X more.</p>
               </article>
               <article class="card">
-                <svg width="100" height="49" viewBox="0 0 100 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.00122 43.3569L22.8472 5.00122L40.6933 43.3569L58.5393 5.00122L76.3853 43.3569L94.2313 5.00122" stroke="#2FDBBC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="card-icon">
+                  <svg 
+                    class="size-full"
+                    viewBox="0 0 100 49"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <use href="#img-adv-3"></use>
+                  </svg>
+                </div>
                 <h3 class="heading-2">Analytics & Insights</h3>
-                <p class="text-white text-lg xl:text-xl">Gain a holistic view into your customers' buying behavior & purchasing patterns.</p>
+                <p class="text-white text-base xl:text-xl">Gain a holistic view into your customers' buying behavior & purchasing patterns.</p>
               </article>
               <article class="card">
-                <svg width="100" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="5" width="55.8757" height="29.3462" rx="14.6731" stroke="#C1DB2F" stroke-width="10"/><rect x="36.3831" y="22.1157" width="55.8757" height="29.3462" rx="14.6731" transform="rotate(-22.1921 36.3831 22.1157)" stroke="#C1DB2F" stroke-width="10"/></svg>
+                <div class="card-icon">
+                  <svg 
+                    class="size-full"
+                    viewBox="0 0 100 50"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <use href="#img-adv-4"></use>
+                  </svg>
+                </div>
                 <h3 class="heading-2">Fraud Protection</h3>
-                <p class="text-white text-lg xl:text-xl">Budss handles all payments with fraud prevention algorithm & user-set PIN code.</p>
+                <p class="text-white text-base xl:text-xl">Budss handles all payments with fraud prevention algorithm & user-set PIN code.</p>
               </article>
             </div>
           </div>
@@ -175,7 +211,22 @@
   <footer class="py-12 text-center text-gray-500 text-sm">
     <div class="max-w-container mx-auto px-4">© 2026 Budss. All rights reserved.</div>
   </footer>
-
+  <svg display="none">
+    <defs>
+      <g id="img-adv-2">
+        <path xmlns="http://www.w3.org/2000/svg" stroke="#A64CED" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M35.5379 88.4527C7.13576 78.1223 15.3758 53.69 38.0364 46.5041C66.3622 37.5218 64.636 73.0154 37.9347 64.1621C-5.4168 49.7882 24.1064 15.7717 46.9658 14.6918"/><path xmlns="http://www.w3.org/2000/svg" stroke="#A64CED" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M38.8147 5.00129L51.5543 10.7241L45.8314 23.4637"/>
+      </g>
+      <g id="img-adv-3">
+        <path xmlns="http://www.w3.org/2000/svg" stroke="#2FDBBC" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="M5.00122 43.3569L22.8472 5.00122L40.6933 43.3569L58.5393 5.00122L76.3853 43.3569L94.2313 5.00122"/>
+      </g>
+      <g id="img-adv-4">
+        <rect xmlns="http://www.w3.org/2000/svg" width="55.876" height="29.346" x="5" y="5" stroke="#C1DB2F" stroke-width="10" rx="14.673"/><rect xmlns="http://www.w3.org/2000/svg" width="55.876" height="29.346" x="36.383" y="22.116" stroke="#C1DB2F" stroke-width="10" rx="14.673" transform="rotate(-22.192 36.383 22.116)"/>
+      </g>
+      <g id="img-adv-1">
+        <path xmlns="http://www.w3.org/2000/svg" stroke="#FFAA4C" stroke-width="10" d="M35.076 8.26481C36.6868 3.91172 42.8437 3.91172 44.4545 8.26481L50.8981 25.6783C51.4045 27.0469 52.4836 28.126 53.8522 28.6324L71.2657 35.076C75.6188 36.6868 75.6188 42.8437 71.2657 44.4545L53.8522 50.8981C52.4836 51.4045 51.4045 52.4836 50.8981 53.8522L44.4545 71.2657C42.8437 75.6188 36.6868 75.6188 35.076 71.2657L28.6324 53.8522C28.126 52.4836 27.0469 51.4045 25.6783 50.8981L8.26481 44.4545C3.91172 42.8437 3.91172 36.6868 8.26481 35.076L25.6783 28.6324C27.0469 28.126 28.126 27.0469 28.6324 25.6783L35.076 8.26481Z"/>
+      </g>
+    </defs>
+  </svg>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
         const toggle = document.getElementById('menuToggle');
